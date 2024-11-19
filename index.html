@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Define a codificação de caracteres como UTF-8, para garantir que caracteres especiais sejam exibidos corretamente -->
     <meta charset="UTF-8">
+    
+    <!-- Título da página que será exibido na aba do navegador -->
     <title>Reserva de Mesa</title>
+    
+    <!-- Link para o arquivo de estilo CSS (externo) que define a aparência da página -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Container principal da reserva -->
     <div class="reservation-container">
+        
+        <!-- Título da seção -->
         <h2>Faça sua Reserva</h2>
+        
+        <!-- Formulário para inserir os dados da reserva -->
         <form id="reservationForm">
+            
+            <!-- Campo para inserir o nome do cliente -->
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" placeholder="Seu nome" required>
-
+            <!-- O 'required' torna este campo obrigatório -->
+            
+            <!-- Campo para inserir a data da reserva -->
             <label for="date">Data:</label>
             <input type="date" id="date" name="date" required>
-
+            <!-- O tipo 'date' permite que o usuário selecione uma data -->
+            
+            <!-- Campo para inserir a hora da reserva -->
             <label for="time">Hora:</label>
             <input type="time" id="time" name="time" required>
-
+            <!-- O tipo 'time' permite que o usuário selecione uma hora -->
+            
+            <!-- Campo para inserir o número de convidados -->
             <label for="guests">Número de Convidados:</label>
             <input type="number" id="guests" name="guests" min="1" placeholder="Quantidade de pessoas" required>
-
+            <!-- O tipo 'number' garante que o valor seja numérico e 'min="1"' garante que o número mínimo seja 1 -->
+            
+            <!-- Botão de envio do formulário -->
             <button type="submit">Reservar</button>
         </form>
+        
+        <!-- Div para exibir mensagens de sucesso ou erro após o envio -->
         <div id="message"></div>
     </div>
+    
+    <!-- Script JavaScript que gerencia o comportamento da página, como validação e envio do formulário -->
     <script src="script.js"></script>
 </body>
 </html>
