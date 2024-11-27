@@ -1,0 +1,156 @@
+/* Reseta margens e preenchimentos padrão, e aplica o modelo de caixa de borda para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilização do corpo da página */
+body {
+    font-family: 'Arial', sans-serif; /* Define a fonte do corpo como Arial */
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9); /* Define um gradiente de fundo suave */
+    display: flex; /* Utiliza o Flexbox para centralizar os elementos */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh; /* Faz com que a altura do corpo ocupe 100% da altura da janela */
+}
+
+/* Estilização do container de reserva */
+.reservation-container {
+    background-color: #ffffff; /* Cor de fundo branca para o container */
+    padding: 30px; /* Adiciona preenchimento interno ao container */
+    border-radius: 10px; /* Arredonda os cantos do container */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Adiciona sombra para dar um efeito de profundidade */
+    width: 100%; /* Faz o container ocupar 100% da largura disponível */
+    max-width: 400px; /* Define uma largura máxima de 400px */
+    text-align: center; /* Centraliza o texto dentro do container */
+    animation: fadeIn 1s ease-in-out; /* Adiciona uma animação de aparecimento suave */
+}
+
+/* Animação de fade-in que faz o container aparecer com um efeito suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); } /* Começa invisível e ligeiramente reduzido */
+    to { opacity: 1; transform: scale(1); } /* Torna totalmente visível e na escala normal */
+}
+
+/* Estilização do título da reserva */
+h2 {
+    color: #333; /* Cor do texto do título */
+    font-size: 24px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    background: -webkit-linear-gradient(#007bff, #0056b3); /* Gradiente de fundo para o título */
+    -webkit-background-clip: text; /* Faz o gradiente aparecer apenas no texto */
+    -webkit-text-fill-color: transparent; /* Torna o texto transparente para exibir o gradiente */
+}
+
+/* Estilização das labels */
+label {
+    display: block; /* Faz com que a label ocupe uma linha inteira */
+    color: #555; /* Cor do texto das labels */
+    font-weight: bold; /* Deixa o texto das labels em negrito */
+    margin-bottom: 5px; /* Espaço abaixo das labels */
+    text-align: left; /* Alinha o texto da label à esquerda */
+}
+
+/* Estilização dos campos de entrada de dados */
+input[type="text"], input[type="date"], input[type="time"], input[type="number"] {
+    width: 100%; /* Faz os campos de entrada ocuparem toda a largura disponível */
+    padding: 12px; /* Adiciona preenchimento interno para maior espaçamento */
+    margin-bottom: 15px; /* Espaço abaixo de cada campo */
+    border: 1px solid #ccd; /* Borda de 1px de cor cinza claro */
+    border-radius: 5px; /* Arredonda os cantos dos campos */
+    outline: none; /* Remove a borda de foco padrão */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Adiciona transição suave para borda e sombra */
+}
+
+/* Estilização quando o campo de entrada está em foco (clicado) */
+input:focus {
+    border-color: #007bff; /* Muda a cor da borda para azul quando em foco */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Adiciona sombra azul suave */
+    transform: scale(1.02); /* Aumenta ligeiramente o tamanho do campo */
+}
+
+/* Estilização do botão de reserva */
+button {
+    width: 100%; /* Faz o botão ocupar toda a largura disponível */
+    padding: 12px; /* Adiciona preenchimento interno ao botão */
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Define um gradiente azul para o fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+    font-size: 16px; /* Tamanho da fonte do botão */
+    font-weight: bold; /* Deixa o texto do botão em negrito */
+    cursor: pointer; /* Altera o cursor para uma mãozinha ao passar sobre o botão */
+    transition: background 0.3s, transform 0.3s; /* Adiciona uma transição suave para o fundo e o efeito de transformação */
+    box-shadow: 0 4px 8px rgba(0, 91, 178, 0.3); /* Adiciona sombra suave ao botão */
+}
+
+/* Estilização quando o botão é passado o mouse sobre ele */
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003f73); /* Muda o gradiente para tons mais escuros de azul */
+    transform: scale(1.05); /* Aumenta o botão ligeiramente */
+    box-shadow: 0 6px 12px rgba(0, 91, 178, 0.5); /* Aumenta a sombra quando o mouse passa sobre o botão */
+}
+
+/* Estilização quando o botão é clicado */
+button:active {
+    transform: scale(0.98); /* Faz o botão diminuir de tamanho ligeiramente quando pressionado */
+}
+
+/* Estilização da caixa de mensagem de sucesso ou erro */
+#message {
+    margin-top: 15px; /* Espaço acima da caixa de mensagem */
+    font-size: 16px; /* Tamanho da fonte */
+    padding: 10px; /* Preenchimento interno da caixa */
+    border-radius: 5px; /* Arredonda os cantos da caixa */
+    display: none; /* Inicialmente oculta */
+}
+
+/* Estilização para a mensagem de sucesso */
+#message.success {
+    background-color: #d4edda; /* Cor de fundo verde claro para sucesso */
+    color: #155724; /* Cor do texto verde escuro */
+    display: block; /* Exibe a caixa */
+    animation: slideDown 0.5s ease-in-out; /* Adiciona animação de deslizar para baixo */
+}
+
+/* Estilização para a mensagem de erro */
+#message.error {
+    background-color: #f8d7da; /* Cor de fundo vermelha clara para erro */
+    color: #721c24; /* Cor do texto vermelha escura */
+    display: block; /* Exibe a caixa */
+    animation: slideDown 0.5s ease-in-out; /* Adiciona animação de deslizar para baixo */
+}
+
+/* Animação de deslizar para baixo */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); } /* Começa invisível e um pouco acima */
+    to { opacity: 1; transform: translateY(0); } /* Torna visível e na posição original */
+}
+
+/* Estilização do placeholder nos campos de entrada */
+input::placeholder {
+    color: #999; /* Cor do texto do placeholder */
+    opacity: 0.7; /* Define a opacidade do texto do placeholder */
+}
+
+/* Estilização quando o mouse passa sobre o placeholder */
+input:hover::placeholder {
+    color: #666; /* Muda a cor do placeholder quando o mouse passa sobre o campo */
+    transition: color 0.3s; /* Transição suave de cor */
+}
+
+/* Estilização da caixa de mensagem com a classe .show (exibição prolongada) */
+#message.show {
+    display: block; /* Exibe a caixa */
+    opacity: 1; /* Torna a caixa completamente opaca */
+    transform: translateY(0); /* Restaura a posição normal */
+    animation: slideDown 0.5s ease-in-out, fadeOut 5s ease forwards; /* Anima a exibição e ocultação após 5 segundos */
+}
+
+/* Animação de fade-out após a exibição prolongada da mensagem */
+@keyframes fadeOut {
+    0% { opacity: 1; } /* Começa com opacidade 100% */
+    90% { opacity: 1; } /* Mantém a opacidade até 90% */
+    100% { opacity: 0; display: none; } /* Torna a mensagem invisível e a oculta após 5 segundos */
+}
